@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>General info about toolset &mdash; Thermal Project 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Thermal Project 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Getting started" href="getting_started.html"/>
+        <link rel="prev" title="Intro" href="intro.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Thermal Project
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Intro</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">General info about toolset</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#jgenerilo-hot-floorplans-generator">JGenerilo - hot-floorplans generator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#design-analysis">Design analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#netlist-mapper">Netlist mapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#design-generation">Design generation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#floorplanmaker-gui-for-hot-floorplans-design">FloorplanMaker - GUI for hot-floorplans design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulationcore-thermal-emulation-controller">SimulationCore - Thermal emulation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#simulio-pc-emulation-control-software">Simulio - PC emulation control software</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#jgenerilo">JGenerilo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#floorplanmaker">FloorplanMaker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#simulio">Simulio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#simulationcore">SimulationCore</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#fast-start">Fast start</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Thermal Project</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>General info about toolset</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/toolset.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="general-info-about-toolset">
+<h1>General info about toolset<a class="headerlink" href="#general-info-about-toolset" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes designed project tools which creates floorplans for
+thermal emulations. The created toolset consists of <strong>FloorplanMaker</strong>
+(FM) which is Graphical User Interface (GUI) for creating <strong>emulation
+floorplans</strong>. This tool provides user graphical representation of the FPGA
+design with emulation controller and the information about available resources
+for both heaters and thermometers implementation. User floorplan is stored in
+form of <em>XML</em> file. Second tool is <strong>JGenerilo</strong> (first version of
+tool was written in Python using FDAT, the current version is JGenerilo written
+in Java and it exploits Rapidsmith). Generilo uses produced by FM xml
+floorplan description to place and route both heaters and thermometers. In
+figure below is showed the placement of created tools in flow of
+implementing the final bitstream for thermal emulation.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/JGenerilo.png"><img alt="_images/JGenerilo.png" src="_images/JGenerilo.png" style="width: 571.2px; height: 270.4px;" /></a>
+</div>
+<p>In this flow thermal emulation controller (the emulation controller is not a
+part of this project and would not be described in this work) is implemented
+using standard Xilinx implementation flow from HDL files. My toolset uses
+design in form of NCD file which is produced finally by PAR tool. The NCD file
+is translated into XDL file by XDL tool. Then XDL file is processed by Generilo
+tool. Generilo husks the information about the tiles and theirs eventual
+exploitation. Produced in this way xml file is further processed by FM for
+representing resources of FPGA in form o tiles. Tiles compatible with
+thermometers and heaters are avialable for user to create hot floorplan. FM
+finally produces an XML file with placement description of heaters an
+thermometers. This file is used by Generilo tool to produce final netlist in
+form of XDL. This XDL is further translated into NCD file, the route between
+both heaters and thermometers on one side and the thermal controller is added
+by Xilinx PAR tool. After the netlist is finished bitgen produces the bitstream
+which can is loaded into FPGA device for carry out the thermal emulation. The
+more detailed description of the toolset implementation and architecture is
+provided in following sections.</p>
+<div class="section" id="jgenerilo-hot-floorplans-generator">
+<h2>JGenerilo - hot-floorplans generator<a class="headerlink" href="#jgenerilo-hot-floorplans-generator" title="Permalink to this headline">¶</a></h2>
+<p>JGenerilo is the most important tool in whole toolset. It is designed to
+synthesize and deploy the real silicon device as set of heaters which will
+emulate the thermal behavior of restored circuit. Beside heater blocks
+JGenerilo generates also set of thermometers to collect the thermal data for
+final thermal behavior modeling. JGenerilo uses Xilinx XDL language to implement
+following functionalities:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Design analysis</strong> - JGenerilo analyze specific FPGA resources and
+produces compressed description of available resources for different
+types of heaters and thermometers. Description is available in two forms:
+text which is displayed directly in command line and in XML file form
+which can be further used by customized user tools or by FM for emulation
+floorplaning.</li>
+<li><strong>Netlist mapping</strong> - JGenerilo reads the design netlist with prepared
+heater or thermometer and map it into form of macro in JGenerilo elements
+database.</li>
+<li><strong>Design generation</strong> - using emulation floorplan description provided by
+FM it produces the final netlist for emulation purposes in XDL file form.</li>
+</ul>
+</div></blockquote>
+<p>In following sections we try to explicit the described above functionalities.</p>
+<div class="section" id="design-analysis">
+<h3>Design analysis<a class="headerlink" href="#design-analysis" title="Permalink to this headline">¶</a></h3>
+<p>Before the floorplaning process can be pursued it is essential to analyse both
+target device and the design with emulation controller. <em>JGenerilo</em> is able to
+do this two things. Using Device API, <em>JGenerilo</em> analyses and produces the
+description of available resources on target device. In
+Listing below is showed slice of <em>XML device description</em> file
+which is produced by <em>Generilo</em>. File starts with root element <code class="docutils literal"><span class="pre">device</span></code> which
+describes version of file and the name of device for which was produced. First
+child element <code class="docutils literal"><span class="pre">size</span></code> determine the dimensions of specified device.  Example
+device <em>Virtex5 LX110T</em> has <code class="docutils literal"><span class="pre">164</span></code> columns and <code class="docutils literal"><span class="pre">177</span></code> rows.  Successive
+element <code class="docutils literal"><span class="pre">clbsize</span></code> indicates the physical size of logical blocks in device.
+This information can be used to modeling simulation.</p>
+<div class="literal-block-wrapper container" id="floorplan-xml">
+<div class="code-block-caption"><span class="caption-text"><strong>Listing: Example of XML device description file for Virtex LX110T FPGA</strong></span><a class="headerlink" href="#floorplan-xml" title="Permalink to this code">¶</a></div>
+<div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;device</span> <span class="na">version=</span><span class="s">&quot;0.2&quot;</span> <span class="na">name=</span><span class="s">&quot;xc5vlx110tff1136&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;size</span> <span class="na">cols=</span><span class="s">&quot;164&quot;</span> <span class="na">rows=</span><span class="s">&quot;177&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;clbsize</span> <span class="na">width=</span><span class="s">&quot;0.00025&quot;</span> <span class="na">height=</span><span class="s">&quot;0.0002&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;obstacle</span> <span class="na">x=</span><span class="s">&quot;0&quot;</span> <span class="na">y=</span><span class="s">&quot;0&quot;</span> <span class="na">width=</span><span class="s">&quot;4&quot;</span> <span class="na">height=</span><span class="s">&quot;177&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;obstacle</span> <span class="na">x=</span><span class="s">&quot;20&quot;</span> <span class="na">y=</span><span class="s">&quot;0&quot;</span> <span class="na">width=</span><span class="s">&quot;4&quot;</span> <span class="na">height=</span><span class="s">&quot;177&quot;</span> <span class="nt">/&gt;</span>
+  ...
+  <span class="nt">&lt;unit</span> <span class="na">x=</span><span class="s">&quot;127&quot;</span> <span class="na">y=</span><span class="s">&quot;107&quot;</span> <span class="na">width=</span><span class="s">&quot;10&quot;</span> <span class="na">height=</span><span class="s">&quot;1&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;unit</span> <span class="na">x=</span><span class="s">&quot;127&quot;</span> <span class="na">y=</span><span class="s">&quot;109&quot;</span> <span class="na">width=</span><span class="s">&quot;10&quot;</span> <span class="na">height=</span><span class="s">&quot;1&quot;</span> <span class="nt">/&gt;</span>
+  ...
+<span class="nt">&lt;/device&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Next child elements named <code class="docutils literal"><span class="pre">obstacles</span></code> describes the position of FB which are
+different type than CLB: <em>I/O blocks</em>, <em>interconnect tiles</em>, <em>DCM blocks</em> and
+others which cannot implement user logic. Consecutive elements are <code class="docutils literal"><span class="pre">units</span></code>.
+Those elements describes CLBs used to implements logic connected with emulation
+controller. Similarly to <code class="docutils literal"><span class="pre">obstacles</span></code>, <code class="docutils literal"><span class="pre">units</span></code> blocks are unusable for
+implementing the emulation floorplan, however their are specially indicated to
+tell user the position of emulation controller which can affect the emulation
+process by sharing routing resources or by heating it up since to close
+position.</p>
+</div>
+<div class="section" id="netlist-mapper">
+<h3>Netlist mapper<a class="headerlink" href="#netlist-mapper" title="Permalink to this headline">¶</a></h3>
+<p>This section describes <em>Netlist mapper</em> functionality of <em>Generilo</em>. Design
+netlist <code class="docutils literal"><span class="pre">NCD</span></code> is first translated to XDL by Xilinx <code class="docutils literal"><span class="pre">XDL</span></code> tool. <em>Netlist
+mapper</em> loads also FPGA fabric however here it is processed by Rapidsmith which
+creates object of device. Design netlist is here loaded by <code class="docutils literal"><span class="pre">Design</span> <span class="pre">class</span></code>
+which creates object with design object.  As well as in Python version of tool
+also here module called <em>Config detector</em> search for module or instance and
+provides netlist for MongoDB using <em>Jongo</em> framework. Finally, <em>Netlist mapper</em>
+produces a MongoDB object and stores it in Mongo Database.</p>
+<p>The <em>Netlist mapper</em> provides two ways for storing the designed components. The
+first is a Python recipe generated by Recipe creator module.  Module stores the
+component configuration and netlist in a regular Python file as a class with
+standard component methods for interfacing the stored netlist.  Second method
+relies on Jongo framework that maps the netlist to JSON file to store it in
+Mongo Database as an object.</p>
+<p>Component netlist is stored using non-SQL database <em>MongoDB</em> and Jongo
+framework to map netlist into <em>JSON</em> file. The structure of such file is in
+fact consisted with XDL hierarchical structure. Non-SQL structure of this
+database allows to store object with different structure what facilitates the
+way of storing different instances or modules. Jongo allows to create object
+mapper which facilitates conversion from and to MongoDB.</p>
+</div>
+<div class="section" id="design-generation">
+<h3>Design generation<a class="headerlink" href="#design-generation" title="Permalink to this headline">¶</a></h3>
+<p>Steps presented in previous sections prepared <code class="docutils literal"><span class="pre">XDL</span></code> component definition
+required for the generation of multiple component instances and their placement
+in FPGA fabric and the placement description generated by <code class="docutils literal"><span class="pre">FM</span></code>. In current
+step a component of <code class="docutils literal"><span class="pre">JGenerilo</span></code> tool called <code class="docutils literal"><span class="pre">JGenerilo</span> <span class="pre">Design</span> <span class="pre">Generator</span></code>
+(GDG) inserts components into the FPGA design. The operation of the tool is
+controlled by the <code class="docutils literal"><span class="pre">XML</span></code> control file (FM result) that specifies what and
+where to put, i.e. indicates the number of instances of each component and
+their position (Detailed description of this file is provided in section
+FloorplanMaker). <code class="docutils literal"><span class="pre">GDG</span></code> inserts the specified instances of components into
+selected positions in the design and invokes bitstream generation.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/generilo.png"><img alt="_images/generilo.png" src="_images/generilo.png" style="width: 427.0px; height: 209.0px;" /></a>
+</div>
+<p>Workflow of <code class="docutils literal"><span class="pre">GDG</span></code> is presented on figure above and is identical for both
+version of <em>Generilo</em>. The <code class="docutils literal"><span class="pre">XML</span></code> control file contains information about
+device type, design file to work on, list of components and location of their
+instances. <code class="docutils literal"><span class="pre">GDG</span></code> parses this file and gets the necessary information to run
+the design generation process. The tool loads required file and component
+configuration from recipes or Mongo database depending on version. At the
+pbeginning <code class="docutils literal"><span class="pre">GDG</span></code> takes the design <code class="docutils literal"><span class="pre">NCD</span></code> file, translates it to <code class="docutils literal"><span class="pre">XDL</span></code>
+format and then loads it to <code class="docutils literal"><span class="pre">GDG</span> <span class="pre">Core</span></code> through <code class="docutils literal"><span class="pre">Design</span></code> class.  <code class="docutils literal"><span class="pre">Device</span></code>
+class loads the device description file and provides it to the main core.</p>
+<p>The <code class="docutils literal"><span class="pre">GDG</span> <span class="pre">Core</span></code> loads the necessary components’ configurations, replicates
+components and places their instances. Information about the device structure
+and design is used by the Core to check the correctness of proposed deployment
+of instances and to generate the final <code class="docutils literal"><span class="pre">XDL</span></code> description.  Afterwards <code class="docutils literal"><span class="pre">GDG</span></code>
+uses Xilinx&#8217;s tools to translate modified <code class="docutils literal"><span class="pre">XDL</span></code> file to <code class="docutils literal"><span class="pre">NCD</span></code> file, route
+inserted instances with control unit and finally produce the bitstream.</p>
+</div>
+</div>
+<div class="section" id="floorplanmaker-gui-for-hot-floorplans-design">
+<h2>FloorplanMaker - GUI for hot-floorplans design<a class="headerlink" href="#floorplanmaker-gui-for-hot-floorplans-design" title="Permalink to this headline">¶</a></h2>
+<p>This section describes the <em>FloorplanMaker</em> (FM). <code class="docutils literal"><span class="pre">FM</span></code> is a graphical
+front-end for the <em>JGenerilo</em> toolkit that allows for easy manipulation of
+placement of components in the FPGA fabric. <code class="docutils literal"><span class="pre">FM’s</span></code> GUI is presented on figure
+below. The tool has four main areas: menu, heater list, thermometer list and
+FPGA fabric preview used for placement of heaters and thermometers. Menu File
+is used to create new project, load existing one and save current project. Menu
+Tools allows user to create an <code class="docutils literal"><span class="pre">XML</span></code> file describing placement of components
+that will be later used by <code class="docutils literal"><span class="pre">Generilo</span> <span class="pre">Design</span> <span class="pre">Placer</span></code>. Here user can also
+invoke the generation of final bitstream for a designed floorplan.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/evaluation.png"><img alt="_images/evaluation.png" src="_images/evaluation.png" style="width: 620.0px; height: 339.2px;" /></a>
+</div>
+<p>Heater list contains all the instances of heating components defined by user.
+The list contains groups of heaters with the information about their name,
+color which distinguishes  them on the FPGA preview area and type. Colors help
+user in easy recognition of the heater groups placement. The list also contains
+information about type of heaters in each group.  Similarly the second list
+contains list of the  thermometers in the fabric. In contrast to heaters,
+thermometers are one <code class="docutils literal"><span class="pre">CLB</span></code> components and occur individually on the
+fabric. Thermometers are visualised in preview area as circles with red and
+green colour. Green colour denotes the thermometer currently selected in the
+list. The FPGA preview is interactive and supports placement of heater groups
+by area selection as well as one <code class="docutils literal"><span class="pre">CLB</span></code> selection by simple one click on
+desired block. Heaters and thermometers can be placed using left mouse button
+and displaced by using right mouse button.</p>
+<p>FM produces designed by user emulation floorplan in form of <code class="docutils literal"><span class="pre">XML</span></code> file which
+is further used by <em>JGenerilo</em> tool. Root element of this file is <code class="docutils literal"><span class="pre">board</span></code>
+which contains keys <code class="docutils literal"><span class="pre">device</span></code> describes family for which floorplan is
+designed, <code class="docutils literal"><span class="pre">mode</span></code> this keyword describes if the floorplan is for emulation or
+mesurement of thermal behaviour of some functional design, <code class="docutils literal"><span class="pre">version</span></code>
+indicates revision of file. First child element is <code class="docutils literal"><span class="pre">input</span></code>. It describes the
+NCD netlist file to which the floorplan should be added. On the other side,
+<code class="docutils literal"><span class="pre">output</span></code> indicates target file which should be created after netlists
+merging. Following elements are two heater descriptions. First one is
+<code class="docutils literal"><span class="pre">heater1</span></code> which is <code class="docutils literal"><span class="pre">RO1</span></code> type. In the body of heater description is
+indicated the placement of the heater blocks over the FPGA. Two of such blocks
+are placed respectively in 6-th column and 1-st row and 6-th column and 2-nd
+row. The last element in this file is thermometer <code class="docutils literal"><span class="pre">term1</span></code>. As well as in
+heater case thermometer has defined position and type.</p>
+<div class="literal-block-wrapper container" id="generilo-xml">
+<div class="code-block-caption"><span class="caption-text"><strong>Listing: Example of XML emulation floorplan file for Virtex LX110T FPGA</strong></span><a class="headerlink" href="#generilo-xml" title="Permalink to this code">¶</a></div>
+<div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;device</span> <span class="na">version=</span><span class="s">&quot;0.2&quot;</span> <span class="na">name=</span><span class="s">&quot;xc5vlx110tff1136&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;size</span> <span class="na">cols=</span><span class="s">&quot;164&quot;</span> <span class="na">rows=</span><span class="s">&quot;177&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;clbsize</span> <span class="na">width=</span><span class="s">&quot;0.00025&quot;</span> <span class="na">height=</span><span class="s">&quot;0.0002&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;obstacle</span> <span class="na">x=</span><span class="s">&quot;0&quot;</span> <span class="na">y=</span><span class="s">&quot;0&quot;</span> <span class="na">width=</span><span class="s">&quot;4&quot;</span> <span class="na">height=</span><span class="s">&quot;177&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;obstacle</span> <span class="na">x=</span><span class="s">&quot;20&quot;</span> <span class="na">y=</span><span class="s">&quot;0&quot;</span> <span class="na">width=</span><span class="s">&quot;4&quot;</span> <span class="na">height=</span><span class="s">&quot;177&quot;</span> <span class="nt">/&gt;</span>
+  ...
+  <span class="nt">&lt;unit</span> <span class="na">x=</span><span class="s">&quot;127&quot;</span> <span class="na">y=</span><span class="s">&quot;107&quot;</span> <span class="na">width=</span><span class="s">&quot;10&quot;</span> <span class="na">height=</span><span class="s">&quot;1&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;unit</span> <span class="na">x=</span><span class="s">&quot;127&quot;</span> <span class="na">y=</span><span class="s">&quot;109&quot;</span> <span class="na">width=</span><span class="s">&quot;10&quot;</span> <span class="na">height=</span><span class="s">&quot;1&quot;</span> <span class="nt">/&gt;</span>
+  ...
+<span class="nt">&lt;/device&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="simulationcore-thermal-emulation-controller">
+<h2>SimulationCore - Thermal emulation controller<a class="headerlink" href="#simulationcore-thermal-emulation-controller" title="Permalink to this headline">¶</a></h2>
+<p>Emulation process is controled using designed <strong>SimulationCore</strong>, which is
+responsible for manage the emulation process which consists of 3 parts:</p>
+<blockquote>
+<div><ul class="simple">
+<li>controlling heaters system,</li>
+<li>collecting thermometers readings,</li>
+<li>transferring data between FPGA and computer.</li>
+</ul>
+</div></blockquote>
+<p>Thermometers data and instructions for heaters are transferring through port
+RS232. <strong>SimulationCore</strong> black box is presented on the fig.~ref{SimCoreBB}.
+Inputs are: $n$ signals from thermometers, clock signal (default 50 MHz), data
+from RS232 and one line signal simulation reset. Output signals are:
+thermometers enable, heaters enable and RS232 data output. I have to note that
+both enable signals are hidden in VHDL. User adds them when he defines the
+placement of heaters and thermometers. After that, the project tools routes
+this signals with proper thermometers and heaters blocks.</p>
+<p>Simulation Core contains four main modules and is presented on figure below:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>FeqDiv</strong> - generator of the 3 kHz frequency signal</li>
+<li><strong>thermometersLogic</strong> - thermometers management module</li>
+<li><strong>heatersLogic</strong> - heater management module</li>
+<li><strong>RS232</strong> - black box module to service RS232</li>
+</ul>
+</div></blockquote>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/SimulationCoreSystem.png"><img alt="_images/SimulationCoreSystem.png" src="_images/SimulationCoreSystem.png" style="width: 561.6px; height: 309.6px;" /></a>
+</div>
+<p>Modules <strong>thermometersLogic</strong> and <strong>heatersLogic</strong> manage the
+principle function of the core which is the emulation process. Inside the
+module <strong>thermomethersLogic</strong> we find the finite state machine which is
+responsible for sending measurements data through RS232. There is also a
+counter circuit which works independently to the state machine. This circuit
+controls attached signal sending to thermometers, counting their frequency and
+transfer results to state machine. <strong>ThermometersLogic</strong> transfers
+measurement data permanently in 3 bytes packages. First byte contains
+information about number of the thermometer. Next bytes contain measurement
+result. On Figure below are visible two measurements from two
+thermometers. Each of them shows 50 MHz frequency. The <code class="docutils literal"><span class="pre">FF</span></code> means 8191
+oscillations from RO in time of 166 us.</p>
+<div class="figure align-center">
+<img alt="_images/protocolthermo.png" src="_images/protocolthermo.png" />
+</div>
+<p>The <strong>heatersLogic</strong> module consists of counter assigned to each heater and
+comparator.  Comparators send signals powering up heaters. Independently works
+the state machine which collects controlling commands from RS232 port and
+editing values in registers ascribed to each heater.  Control commands and
+measurements data alike have a form of 3-bytes packages. The first byte is an
+initialize sequence valued <code class="docutils literal"><span class="pre">10101010</span></code> in binary or <code class="docutils literal"><span class="pre">55</span></code> in hex. The second
+byte contains the number of the heater. Last byte inform the state machine
+about the amount of power powering up heater. The power value is defined in a
+range from <code class="docutils literal"><span class="pre">0</span></code> to <code class="docutils literal"><span class="pre">255</span></code>. This range is normalized to range from <code class="docutils literal"><span class="pre">0</span></code> to
+<code class="docutils literal"><span class="pre">100</span></code> in my tool. On the figyre below is presented a command which disable
+the heater number <code class="docutils literal"><span class="pre">1</span></code> and a command powering up to full power the heater no.
+<code class="docutils literal"><span class="pre">2</span></code>.</p>
+<div class="figure align-center">
+<img alt="_images/protocolheater.png" src="_images/protocolheater.png" />
+</div>
+</div>
+<div class="section" id="simulio-pc-emulation-control-software">
+<h2>Simulio - PC emulation control software<a class="headerlink" href="#simulio-pc-emulation-control-software" title="Permalink to this headline">¶</a></h2>
+<p><strong>Simulio</strong> is a command line tool created to carry out the emulation process
+on user design according to defined heating program. This program is described
+in appropriative XML file show in listing below. In output tag user define the
+file with readings. In heater tags user define the sequence program for each
+heater indicate the power expressed in percentages and duration in times units
+like seconds, minutes or hours.</p>
+<div class="literal-block-wrapper container" id="id1">
+<div class="code-block-caption"><span class="caption-text"><strong>Listing: Example of XML emulation program file</strong></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;program</span> <span class="na">version=</span><span class="s">&quot;0.1&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;output</span> <span class="na">name=</span><span class="s">&quot;data.txt&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;heater</span> <span class="na">name=</span><span class="s">&quot;heater1&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;40%&quot;</span> <span class="na">time=</span><span class="s">&quot;500s&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;80%&quot;</span> <span class="na">time=</span><span class="s">&quot;1500s&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;20%&quot;</span> <span class="na">time=</span><span class="s">&quot;30min&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/heater&gt;</span>
+    <span class="nt">&lt;heater</span> <span class="na">name=</span><span class="s">&quot;heater2&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;33%&quot;</span> <span class="na">time=</span><span class="s">&quot;22min&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;10%&quot;</span> <span class="na">time=</span><span class="s">&quot;5h&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/heater&gt;</span>
+<span class="nt">&lt;/program&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Simulio takes this instructions as their argument in a emulation program
+control XML file. Additionally tool takes second argument which is a path to
+the RS232 port. Simulio is multi threads program which is asynchronously
+operate the heater control and thermometer reading sequences. At the beginning
+tool write out the whole simulation program in command line and during the work
+write out attached program sequences like powering up heater. User uses Simulio
+via command prompt:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>simulio /dev/ttyUSB0 program.xml.
+</pre></div>
+</div>
+<p>During the simulation Simulio writes all of the thermometers readings to log
+file. User defines this file in output tag in the XML simulation program file.
+Simulio checks the received readings and rejects invalid measurements.  Data
+write to log file are in following format: time in second for start thermometer
+<em>1 : measurement [. . . ] thermometer 2 : measurement</em>. Example data in log
+file: <code class="docutils literal"><span class="pre">0.23</span> <span class="pre">1</span> <span class="pre">:</span> <span class="pre">225862</span> <span class="pre">:</span> <span class="pre">22653</span> <span class="pre">·</span> <span class="pre">·</span> <span class="pre">·</span> <span class="pre">125</span> <span class="pre">:</span> <span class="pre">22446126</span> <span class="pre">:</span> <span class="pre">22777</span></code>. If one of the
+thermometer is not connected Simulio write received value 0.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="getting_started.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="Intro" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, B. Wojciechowski, M. Zagrabski, P. Weber, K. Kepa, M. Nikodem.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
