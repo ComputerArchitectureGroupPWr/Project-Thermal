@@ -379,7 +379,101 @@ hot-floorplan deployment.</li>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Now you are ready to create fpga description</li>
+<li>Now you are ready to create fpga description of used FPGA. Let&#8217;s start from
+creating project dictionary. In cloned SimulationCore repository you find
+examples directory and in it test_project. Please copy this directory into
+your current workspace:</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cp -r <span class="nv">$SIMULATION_CORE_PATH</span>/examples/test_project first_emulation
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>In this folder you should find two files <code class="docutils literal"><span class="pre">SimCore.ncd</span></code> and <code class="docutils literal"><span class="pre">EmulationProgram.xml</span></code>.
+To create hot-floorplan first you have to create <code class="docutils literal"><span class="pre">floorplan.xml</span></code> file with
+current device description.</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>JGenerilo -d SimCore.ncd virtex5
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>After previous step in current project directory you should find <code class="docutils literal"><span class="pre">floorplan.xml</span></code>
+file. Now you can create your first hot-floorplan. To do this open FloorplanMaker</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>FloorplanMaker
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li>Now you should see FloorplanMaker window as below. To create new project click
+File -&gt; New project.</li>
+</ol>
+<a class="reference internal image-reference" href="_images/fm_clear.png"><img alt="_images/fm_clear.png" class="align-center" src="_images/fm_clear.png" style="width: 652.0px; height: 504.0px;" /></a>
+<ol class="arabic simple" start="7">
+<li>New project dialog is showed below. Select <code class="docutils literal"><span class="pre">emulation</span></code> mode and
+<code class="docutils literal"><span class="pre">Virtex5</span></code> device.  As describing file use <code class="docutils literal"><span class="pre">floorplan.xml</span></code> file created
+before by <strong>JGenerilo</strong>. As project localisation choose directory where
+<code class="docutils literal"><span class="pre">floorplan.xml</span></code> is located and type your project name. Click ok.</li>
+</ol>
+<a class="reference internal image-reference" href="_images/fm_newproject.png"><img alt="_images/fm_newproject.png" class="align-center" src="_images/fm_newproject.png" style="width: 540.0px; height: 308.0px;" /></a>
+<ol class="arabic simple" start="8">
+<li>If project was successfully create you should see FPGA matrix in <em>Project Floorplan</em>
+area. Let&#8217;s start and create heater. Click <code class="docutils literal"><span class="pre">Add</span></code> below heater table.</li>
+</ol>
+<a class="reference internal image-reference" href="_images/newproject_loaded.png"><img alt="_images/newproject_loaded.png" class="align-center" src="_images/newproject_loaded.png" style="width: 1404.0px; height: 735.0px;" /></a>
+<ol class="arabic simple" start="9">
+<li>You should see heater new dialog. Fill heater information and click ok.</li>
+</ol>
+<a class="reference internal image-reference" href="_images/heater_dialog.png"><img alt="_images/heater_dialog.png" class="align-center" src="_images/heater_dialog.png" style="width: 393.0px; height: 207.0px;" /></a>
+<ol class="arabic simple" start="10">
+<li>After you add new heater you should see your new heater added both to
+heater table and to Floorplan view like below. Now you can add more heaters
+the same way.</li>
+</ol>
+<a class="reference internal image-reference" href="_images/one_heater.png"><img alt="_images/one_heater.png" class="align-center" src="_images/one_heater.png" style="width: 1404.0px; height: 735.0px;" /></a>
+<ol class="arabic simple" start="11">
+<li>After all heaters are added you can start adding thermometers. Probably you
+would like add thermometer somewhere inside heater. To do this select
+heater in heater table, and click right mouse button over one of heater
+block.  The block should be now empty as on image below.</li>
+</ol>
+<a class="reference internal image-reference" href="_images/empty_heater_block.png"><img alt="_images/empty_heater_block.png" class="align-center" src="_images/empty_heater_block.png" style="width: 1404.0px; height: 735.0px;" /></a>
+<ol class="arabic simple" start="12">
+<li>Add new thermometer by clicking <code class="docutils literal"><span class="pre">Add</span></code> button below thermometers table.
+New thermometer dialog should appear.</li>
+</ol>
+<a class="reference internal image-reference" href="_images/add_term.png"><img alt="_images/add_term.png" class="align-center" src="_images/add_term.png" style="width: 352.0px; height: 150.0px;" /></a>
+<ol class="arabic simple" start="13">
+<li>Click ok and add thermometer in empty block by clicking it two times. Green
+circle should appear as on image.</li>
+</ol>
+<a class="reference internal image-reference" href="_images/added_therm.png"><img alt="_images/added_therm.png" class="align-center" src="_images/added_therm.png" style="width: 1403.0px; height: 734.0px;" /></a>
+<ol class="arabic simple" start="14">
+<li>Now you can add using this steps more thermometers. The example final floorplan
+can be as follow:</li>
+</ol>
+<a class="reference internal image-reference" href="_images/final_fm.png"><img alt="_images/final_fm.png" class="align-center" src="_images/final_fm.png" style="width: 1403.0px; height: 734.0px;" /></a>
+<ol class="arabic simple" start="15">
+<li>The last step is creation of <strong>JGenerilo</strong> input file. Click <code class="docutils literal"><span class="pre">tools</span></code> -&gt;
+<code class="docutils literal"><span class="pre">Create</span> <span class="pre">generilo</span> <span class="pre">file</span></code>. If you don&#8217;t change the <code class="docutils literal"><span class="pre">ncd</span></code> file name then
+default values are fit. Click ok.</li>
+</ol>
+<a class="reference internal image-reference" href="_images/jgenerilo_file.png"><img alt="_images/jgenerilo_file.png" class="align-center" src="_images/jgenerilo_file.png" style="width: 459.0px; height: 162.0px;" /></a>
+<ol class="arabic simple" start="16">
+<li>Close <strong>FloorplanMaker</strong>. In your project directory you should find now
+two new files: <code class="docutils literal"><span class="pre">YourProjectName.xml</span></code> <em>FloorplanMaker project file</em> and
+<code class="docutils literal"><span class="pre">generilo.xml</span></code> and <em>control file for JGenerilo</em>. Now you are ready to
+create final bitstream with your hot-floorplan. To perform this action
+type:</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>JGenerilo -g generilo.xml virtex5
+</pre></div>
+</div>
+<ol class="arabic simple" start="17">
+<li>If everything goes right in current project directory you should find two
+new files <code class="docutils literal"><span class="pre">*.ncd</span></code> and <code class="docutils literal"><span class="pre">*.bit</span></code>. Program FPGA using Xilinx <strong>impact</strong>
+tool.</li>
+<li>If programing FPGA goes well, create <code class="docutils literal"><span class="pre">program.xml</span></code> file with simulation
+program. An example of such file is presented below.</li>
+<li>When</li>
 </ol>
 </div>
 </div>

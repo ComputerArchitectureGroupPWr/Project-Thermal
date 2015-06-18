@@ -244,4 +244,122 @@ Fast start
 
     $ export RAPIDSMITH_PATH=/opt/rapidSmith
 
-3. Now you are ready to create fpga description
+3. Now you are ready to create fpga description of used FPGA. Let's start from
+   creating project dictionary. In cloned SimulationCore repository you find
+   examples directory and in it test_project. Please copy this directory into
+   your current workspace:
+
+.. code-block:: bash
+
+    $ cp -r $SIMULATION_CORE_PATH/examples/test_project first_emulation
+
+4. In this folder you should find two files ``SimCore.ncd`` and ``EmulationProgram.xml``.
+   To create hot-floorplan first you have to create ``floorplan.xml`` file with
+   current device description.
+
+.. code-block:: bash
+
+    $ JGenerilo -d SimCore.ncd virtex5
+
+5. After previous step in current project directory you should find ``floorplan.xml``
+   file. Now you can create your first hot-floorplan. To do this open FloorplanMaker
+
+.. code-block:: bash
+
+    $ FloorplanMaker
+
+6. Now you should see FloorplanMaker window as below. To create new project click
+   File -> New project.
+
+.. image:: _static/figures/fm_clear.png
+   :scale: 50 %
+   :align: center
+
+7. New project dialog is showed below. Select ``emulation`` mode and
+   ``Virtex5`` device.  As describing file use ``floorplan.xml`` file created
+   before by **JGenerilo**. As project localisation choose directory where
+   ``floorplan.xml`` is located and type your project name. Click ok.
+
+.. image:: _static/figures/fm_newproject.png
+   :scale: 100 %
+   :align: center
+
+8. If project was successfully create you should see FPGA matrix in *Project Floorplan*
+   area. Let's start and create heater. Click ``Add`` below heater table.
+
+.. image:: _static/figures/newproject_loaded.png
+   :scale: 100 %
+   :align: center
+
+9. You should see heater new dialog. Fill heater information and click ok.
+
+.. image:: _static/figures/heater_dialog.png
+   :scale: 100 %
+   :align: center
+
+10. After you add new heater you should see your new heater added both to
+    heater table and to Floorplan view like below. Now you can add more heaters
+    the same way.
+
+.. image:: _static/figures/one_heater.png
+   :scale: 100 %
+   :align: center
+
+11. After all heaters are added you can start adding thermometers. Probably you
+    would like add thermometer somewhere inside heater. To do this select
+    heater in heater table, and click right mouse button over one of heater
+    block.  The block should be now empty as on image below. 
+   
+.. image:: _static/figures/empty_heater_block.png
+   :scale: 100 %
+   :align: center
+
+12. Add new thermometer by clicking ``Add`` button below thermometers table.
+    New thermometer dialog should appear.
+
+.. image:: _static/figures/add_term.png
+   :scale: 100 %
+   :align: center
+
+13. Click ok and add thermometer in empty block by clicking it two times. Green
+    circle should appear as on image.
+
+.. image:: _static/figures/added_therm.png
+   :scale: 100 %
+   :align: center
+
+14. Now you can add using this steps more thermometers. The example final floorplan
+    can be as follow:
+
+.. image:: _static/figures/final_fm.png
+   :scale: 100 %
+   :align: center
+
+15. The last step is creation of **JGenerilo** input file. Click ``tools`` ->
+    ``Create generilo file``. If you don't change the ``ncd`` file name then
+    default values are fit. Click ok.
+
+.. image:: _static/figures/jgenerilo_file.png
+   :scale: 100 %
+   :align: center
+
+16. Close **FloorplanMaker**. In your project directory you should find now
+    two new files: ``YourProjectName.xml`` *FloorplanMaker project file* and 
+    ``generilo.xml`` and *control file for JGenerilo*. Now you are ready to
+    create final bitstream with your hot-floorplan. To perform this action
+    type:
+
+.. code-block:: bash
+
+    $ JGenerilo -g generilo.xml virtex5
+
+17. If everything goes right in current project directory you should find two
+    new files ``*.ncd`` and ``*.bit``. Program FPGA using Xilinx **impact**
+    tool.
+
+18. If programing FPGA goes well, create ``program.xml`` file with simulation
+    program. An example of such file is presented below.
+
+19. When 
+
+
