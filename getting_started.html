@@ -31,6 +31,7 @@
 
   
     <link rel="top" title="Thermal Project 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Control files description" href="control_files.html"/>
         <link rel="prev" title="General info about toolset" href="toolset.html"/> 
 
   
@@ -94,6 +95,27 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#fast-start">Fast start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="control_files.html">Control files description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="control_files.html#jgenerilo-control-file">JGenerilo control file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control_files.html#example-of-correct-control-file">Example of correct control file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="control_files.html#simulio-simulation-control-file">Simulio simulation control file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control_files.html#example-of-correct-control-program-file">Example of correct control program file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="control_files.html#fpga-build-description-file">FPGA build description file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control_files.html#example-of-correct-fpga-description-file">Example of correct FPGA description file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publications.html#journal-articles">Journal Articles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publications.html#conference-papers">Conference Papers</a></li>
 </ul>
 </li>
 </ul>
@@ -473,8 +495,49 @@ new files <code class="docutils literal"><span class="pre">*.ncd</span></code> a
 tool.</li>
 <li>If programing FPGA goes well, create <code class="docutils literal"><span class="pre">program.xml</span></code> file with simulation
 program. An example of such file is presented below.</li>
-<li>When</li>
 </ol>
+<div class="literal-block-wrapper container" id="simulio-xml">
+<div class="code-block-caption"><span class="caption-text"><strong>Listing: Example of XML emulation program file</strong></span><a class="headerlink" href="#simulio-xml" title="Permalink to this code">¶</a></div>
+<div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;program</span> <span class="na">version=</span><span class="s">&quot;0.2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;settings</span> <span class="na">duration=</span><span class="s">&quot;1min&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;output</span> <span class="na">name=</span><span class="s">&quot;data.txt&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;heater</span> <span class="na">name=</span><span class="s">&quot;heater1&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;40%&quot;</span> <span class="na">time=</span><span class="s">&quot;500s&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;80%&quot;</span> <span class="na">time=</span><span class="s">&quot;1500s&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;20%&quot;</span> <span class="na">time=</span><span class="s">&quot;30min&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/heater&gt;</span>
+    <span class="nt">&lt;heater</span> <span class="na">name=</span><span class="s">&quot;heater2&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;33%&quot;</span> <span class="na">time=</span><span class="s">&quot;22min&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;10%&quot;</span> <span class="na">time=</span><span class="s">&quot;5h&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/heater&gt;</span>
+<span class="nt">&lt;/program&gt;</span>
+</pre></div>
+</div>
+</div>
+<ol class="arabic simple" start="19">
+<li>When FPGA is programmed and simulation program is ready you can start the
+emulation process, type:</li>
+</ol>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>simulio -p /dev/ttyUSB0 -c program.xml
+</pre></div>
+</div>
+<ol class="arabic simple" start="20">
+<li>Simulation will stop after time declared in program.xml or after <code class="docutils literal"><span class="pre">Ctrl+c</span></code>.</li>
+<li>In <code class="docutils literal"><span class="pre">data.csv</span></code> you should find results.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The results are in fact oscillations of seven stage ring oscillator
+in one period of 3 kHz clock.</p>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>This way user have ready example project. For more sophisticated usage we
+attach also documentation to all control files in next section. In next
+revisions we will add also full code documentation to JGenerilo for use
+to extend it behavior and functionality.</p>
 </div>
 </div>
 
@@ -483,6 +546,8 @@ program. An example of such file is presented below.</li>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="control_files.html" class="btn btn-neutral float-right" title="Control files description" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="toolset.html" class="btn btn-neutral" title="General info about toolset" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -95,6 +95,27 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#fast-start">Fast start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="control_files.html">Control files description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="control_files.html#jgenerilo-control-file">JGenerilo control file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control_files.html#example-of-correct-control-file">Example of correct control file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="control_files.html#simulio-simulation-control-file">Simulio simulation control file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control_files.html#example-of-correct-control-program-file">Example of correct control program file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="control_files.html#fpga-build-description-file">FPGA build description file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control_files.html#example-of-correct-fpga-description-file">Example of correct FPGA description file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publications.html#journal-articles">Journal Articles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publications.html#conference-papers">Conference Papers</a></li>
 </ul>
 </li>
 </ul>
@@ -414,10 +435,11 @@ in appropriative XML file show in listing below. In output tag user define the
 file with readings. In heater tags user define the sequence program for each
 heater indicate the power expressed in percentages and duration in times units
 like seconds, minutes or hours.</p>
-<div class="literal-block-wrapper container" id="id1">
-<div class="code-block-caption"><span class="caption-text"><strong>Listing: Example of XML emulation program file</strong></span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="literal-block-wrapper container" id="simulio-xml">
+<div class="code-block-caption"><span class="caption-text"><strong>Listing: Example of XML emulation program file</strong></span><a class="headerlink" href="#simulio-xml" title="Permalink to this code">¶</a></div>
 <div class="highlight-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
-<span class="nt">&lt;program</span> <span class="na">version=</span><span class="s">&quot;0.1&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;program</span> <span class="na">version=</span><span class="s">&quot;0.2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;settings</span> <span class="na">duration=</span><span class="s">&quot;1min&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;output</span> <span class="na">name=</span><span class="s">&quot;data.txt&quot;</span><span class="nt">/&gt;</span>
     <span class="nt">&lt;heater</span> <span class="na">name=</span><span class="s">&quot;heater1&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;40%&quot;</span> <span class="na">time=</span><span class="s">&quot;500s&quot;</span><span class="nt">/&gt;</span>

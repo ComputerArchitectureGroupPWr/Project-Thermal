@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Control files description &mdash; Thermal Project 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Thermal Project 1.0 documentation" href="index.html"/>
+        <link rel="next" title="Publications" href="publications.html"/>
+        <link rel="prev" title="Getting started" href="getting_started.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="index.html" class="icon icon-home"> Thermal Project
+        
+
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="toolset.html">General info about toolset</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#jgenerilo-hot-floorplans-generator">JGenerilo - hot-floorplans generator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="toolset.html#design-analysis">Design analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toolset.html#netlist-mapper">Netlist mapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="toolset.html#design-generation">Design generation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#floorplanmaker-gui-for-hot-floorplans-design">FloorplanMaker - GUI for hot-floorplans design</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#simulationcore-thermal-emulation-controller">SimulationCore - Thermal emulation controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolset.html#simulio-pc-emulation-control-software">Simulio - PC emulation control software</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#jgenerilo">JGenerilo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#floorplanmaker">FloorplanMaker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#simulio">Simulio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#simulationcore">SimulationCore</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#fast-start">Fast start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#summary">Summary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Control files description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#jgenerilo-control-file">JGenerilo control file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-of-correct-control-file">Example of correct control file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#simulio-simulation-control-file">Simulio simulation control file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-of-correct-control-program-file">Example of correct control program file</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fpga-build-description-file">FPGA build description file</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example-of-correct-fpga-description-file">Example of correct FPGA description file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="publications.html#journal-articles">Journal Articles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publications.html#conference-papers">Conference Papers</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Thermal Project</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Control files description</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/control_files.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="control-files-description">
+<h1>Control files description<a class="headerlink" href="#control-files-description" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="jgenerilo-control-file">
+<h2>JGenerilo control file<a class="headerlink" href="#jgenerilo-control-file" title="Permalink to this headline">¶</a></h2>
+<p>The JGenerilo tool generate the emulated system topology on FPGA device based
+on the control xml file. This file contains also placement of the thermometers
+on the board. Below is presented an example of control file which has to be
+added as first argument of the JGenerilo program. This file is also generated
+by <strong>FloorplanMaker</strong>.</p>
+<div class="section" id="example-of-correct-control-file">
+<h3>Example of correct control file<a class="headerlink" href="#example-of-correct-control-file" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-xml" id="control-generilo-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;board</span> <span class="na">device=</span><span class="s">&quot;Virtex5&quot;</span> <span class="na">mode=</span><span class="s">&quot;emulation&quot;</span> <span class="na">version=</span><span class="s">&quot;0.1&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;SimCore.ncd&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;output</span> <span class="na">name=</span><span class="s">&quot;SimCore_new.ncd&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;heater</span> <span class="na">FMColor=</span><span class="s">&quot;#ff0000&quot;</span> <span class="na">name=</span><span class="s">&quot;heater1&quot;</span> <span class="na">type=</span><span class="s">&quot;RO1&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;clb</span> <span class="na">col=</span><span class="s">&quot;6&quot;</span> <span class="na">row=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+		<span class="nt">&lt;clb</span> <span class="na">col=</span><span class="s">&quot;6&quot;</span> <span class="na">row=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;/heater&gt;</span>
+	<span class="nt">&lt;heater</span> <span class="na">FMColor=</span><span class="s">&quot;#ff0000&quot;</span> <span class="na">name=</span><span class="s">&quot;heater2&quot;</span> <span class="na">type=</span><span class="s">&quot;SRL16&quot;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;clb</span> <span class="na">col=</span><span class="s">&quot;8&quot;</span> <span class="na">row=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+		<span class="nt">&lt;clb</span> <span class="na">col=</span><span class="s">&quot;8&quot;</span> <span class="na">row=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+	<span class="nt">&lt;/heater&gt;</span>
+	<span class="nt">&lt;thermometer</span> <span class="na">col=</span><span class="s">&quot;23&quot;</span> <span class="na">name=</span><span class="s">&quot;term1&quot;</span> <span class="na">row=</span><span class="s">&quot;27&quot;</span> <span class="na">type=</span><span class="s">&quot;RO7&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/board&gt;</span>
+</pre></div>
+</div>
+<p>Correct file has to contain following tags:</p>
+<ul class="simple">
+<li><strong>board</strong> - this tag contains information about the destination <em>device</em> (in
+current version user can use only virtex5 architecture), here user has also
+to choose applicable mode for generating floorplan (for now only <em>emulation</em>).</li>
+<li><strong>input</strong> - information about source <em>.ncd</em> file (relative to location of XML
+file) to which we add heaters floorplan and thermometers.</li>
+<li><strong>output</strong> - destination file of created emulation system.</li>
+<li><strong>heater</strong> - description of ring oscilators grouped as one heater instance -
+this block correspond one block in HotSpot <em>.flp</em> file (<a class="reference external" href="http://lava.cs.virginia.edu/HotSpot/">HotSpot</a>: <em>.flp</em> file
+is file describing the floorplan of simulated device in HotSpot) or one
+functional block of real processor.</li>
+</ul>
+<ul class="simple">
+<li><strong>clb</strong> - in heater&#8217;s children tags user has to define which clbs are part of
+the heater (define the location of heater clb) and indicate the type of ring
+oscillator (In current version user can indicate only RO1 as a heater).</li>
+<li><strong>thermometer</strong> - description of one thermometer which is not a part of heater.
+User has to define the thermometer location and its type (In current version
+only available thermometer type is RO7)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="simulio-simulation-control-file">
+<h2>Simulio simulation control file<a class="headerlink" href="#simulio-simulation-control-file" title="Permalink to this headline">¶</a></h2>
+<p>User define the emulation program in a <em>.xml</em> file, below we present an
+example of correct control file:</p>
+<div class="section" id="example-of-correct-control-program-file">
+<h3>Example of correct control program file<a class="headerlink" href="#example-of-correct-control-program-file" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-xml" id="control-simulio-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;program</span> <span class="na">version=</span><span class="s">&quot;0.2&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;settings</span> <span class="na">duration=</span><span class="s">&quot;1min&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;output</span> <span class="na">name=</span><span class="s">&quot;data.txt&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;heater</span> <span class="na">name=</span><span class="s">&quot;heater1&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;40%&quot;</span> <span class="na">time=</span><span class="s">&quot;500s&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;80%&quot;</span> <span class="na">time=</span><span class="s">&quot;1500s&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;20%&quot;</span> <span class="na">time=</span><span class="s">&quot;30min&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/heater&gt;</span>
+    <span class="nt">&lt;heater</span> <span class="na">name=</span><span class="s">&quot;heater2&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;33%&quot;</span> <span class="na">time=</span><span class="s">&quot;22min&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;conf</span> <span class="na">power=</span><span class="s">&quot;10%&quot;</span> <span class="na">time=</span><span class="s">&quot;5h&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/heater&gt;</span>
+<span class="nt">&lt;/program&gt;</span>
+</pre></div>
+</div>
+<p>Correct file has to contain following tags:</p>
+<ul class="simple">
+<li><strong>program</strong> - parent tag for all action tags in simulation program.</li>
+<li><strong>output</strong> - this tag defines the destination file of thermometers
+measurements.</li>
+<li><strong>settings</strong> - in this tag in attribute <code class="docutils literal"><span class="pre">duration</span></code> user defines duration of
+experiment (available formats:s,min,h)</li>
+<li><strong>heater</strong> - this tag defines program for choosen heater instance defined
+before in Generilo control file. The correct order of heaters is required.</li>
+<li><strong>conf</strong> - contains information about heater power and the time point in
+which this power should by set up (the conf <code class="docutils literal"><span class="pre">&lt;conf</span> <span class="pre">power=&quot;70%&quot;</span>
+<span class="pre">time=&quot;210min&quot;/&gt;</span></code> means that we want setup <code class="docutils literal"><span class="pre">70%</span></code> power after <code class="docutils literal"><span class="pre">210</span></code>
+minutes after emulation starts).  The minimal time pattern is second &#8220;s&#8221;, the
+maximum pattern is hour <code class="docutils literal"><span class="pre">h</span></code>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="fpga-build-description-file">
+<h2>FPGA build description file<a class="headerlink" href="#fpga-build-description-file" title="Permalink to this headline">¶</a></h2>
+<p>FPGA build description file defines which blocks in the FPGA device are not
+available (in general obstacles are blocks which user cannot use since they are
+IO, DCM, BRAM, MUL and so on. Units are blocks occupied by logic connected with
+SimulationCore logic or Microblaze). This file tells user which blocks are
+available and can by used in heat floorplaning process. It is also used by
+FloorplanMaker tool.</p>
+<div class="section" id="example-of-correct-fpga-description-file">
+<h3>Example of correct FPGA description file<a class="headerlink" href="#example-of-correct-fpga-description-file" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-xml" id="control-floorplan-xml"><div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;device</span> <span class="na">version=</span><span class="s">&quot;0.2&quot;</span> <span class="na">name=</span><span class="s">&quot;xc5vlx110tff1136&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;size</span> <span class="na">cols=</span><span class="s">&quot;164&quot;</span> <span class="na">rows=</span><span class="s">&quot;177&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;clbsize</span> <span class="na">width=</span><span class="s">&quot;0.00025&quot;</span> <span class="na">height=</span><span class="s">&quot;0.0002&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;obstacle</span> <span class="na">x=</span><span class="s">&quot;0&quot;</span> <span class="na">y=</span><span class="s">&quot;0&quot;</span> <span class="na">width=</span><span class="s">&quot;4&quot;</span> <span class="na">height=</span><span class="s">&quot;177&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;obstacle</span> <span class="na">x=</span><span class="s">&quot;20&quot;</span> <span class="na">y=</span><span class="s">&quot;0&quot;</span> <span class="na">width=</span><span class="s">&quot;4&quot;</span> <span class="na">height=</span><span class="s">&quot;177&quot;</span> <span class="nt">/&gt;</span>
+  ...
+  <span class="nt">&lt;unit</span> <span class="na">x=</span><span class="s">&quot;127&quot;</span> <span class="na">y=</span><span class="s">&quot;107&quot;</span> <span class="na">width=</span><span class="s">&quot;10&quot;</span> <span class="na">height=</span><span class="s">&quot;1&quot;</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;unit</span> <span class="na">x=</span><span class="s">&quot;127&quot;</span> <span class="na">y=</span><span class="s">&quot;109&quot;</span> <span class="na">width=</span><span class="s">&quot;10&quot;</span> <span class="na">height=</span><span class="s">&quot;1&quot;</span> <span class="nt">/&gt;</span>
+  ...
+<span class="nt">&lt;/device&gt;</span>
+</pre></div>
+</div>
+<p>Correct file has to contain following tags:</p>
+<ul class="simple">
+<li><strong>size</strong> - Size of FPGA (expressed in the number of function blocks)</li>
+<li><strong>clbsize</strong> - size of cell logic block (CLB) ( in meters )</li>
+<li><strong>obstacle</strong> - obstacles are blocks which user cannot use since they are IO,
+DCM, BRAM, MUL and so on beacuse they are structural blocks of FPGA device.</li>
+<li><strong>unit</strong> - blocks occupied by emulation logic or for example Microblaze.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="publications.html" class="btn btn-neutral float-right" title="Publications" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="getting_started.html" class="btn btn-neutral" title="Getting started" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, B. Wojciechowski, M. Zagrabski, P. Weber, K. Kepa, M. Nikodem.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
